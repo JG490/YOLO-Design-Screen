@@ -17,33 +17,33 @@ namespace YOLO_Design_Screen
         {
             InitializeComponent();
 
-            scoreLabel.Text = $"Score: {Form1.score}";
-            List <HighScore> scores = new List<HighScore>();
-            // list to store all values from object list as strings 
-            List<string> tempList = new List<string>();
+            //scoreLabel.Text = $"Score: {Form1.score}";
+            //List <HighScore> scores = new List<HighScore>();
+            //// list to store all values from object list as strings 
+            //List<string> tempList = new List<string>();
 
-            // Add all info from each HighScore object to temp list 
-            foreach (HighScore hs in scores)
-            {
-                tempList.Add(Convert.ToString(hs.score));
-            }
+            //// Add all info from each HighScore object to temp list 
+            //foreach (HighScore hs in scores)
+            //{
+            //    tempList.Add(Convert.ToString(hs.score));
+            //}
 
-            File.WriteAllLines("highscoreFile.txt", tempList);
+            //File.WriteAllLines("highscoreFile.txt", tempList);
 
 
-            //read Highscores. 
-            List<string> scoreList = File.ReadAllLines("HighscoreFile.txt").ToList();
+            ////read Highscores. 
+            //List<string> scoreList = File.ReadAllLines("HighscoreFile.txt").ToList();
 
-            for (int i = 0; i < scoreList.Count; i += 2)
-            {
-                int score = Convert.ToInt32(scoreList[i + 1]);
+            //for (int i = 0; i < scoreList.Count; i += 2)
+            //{
+            //    int score = Convert.ToInt32(scoreList[i + 1]);
 
-                HighScore hs = new HighScore(score);
-                scores.Add(hs);
-            }
-            scores.Sort();
+            //    HighScore hs = new HighScore(score);
+            //    scores.Add(hs);
+            //}
+            //scores.Sort();
 
-            highScoreLabel.Text = $"{scores[0].ToString()}";
+            //highScoreLabel.Text = $"{scores[0].ToString()}";
         }
 
         private void label1_Click(object sender, EventArgs e)

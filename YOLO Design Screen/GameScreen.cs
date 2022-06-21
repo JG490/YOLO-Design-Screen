@@ -14,7 +14,7 @@ namespace YOLO_Design_Screen
     public partial class GameScreen : UserControl
     {
         Random random = new Random();
-        Particle p1 = new Particle(300, 200, 50);
+        Particle p1 = new Particle(300, 200, 25);
 
         List<Obstacle> obstacles = new List<Obstacle>();
         List<HighScore> scores = new List<HighScore>();

@@ -1,4 +1,11 @@
-﻿using System;
+﻿//Joey Gerber
+//Mr. Theodoropoulos
+//ICS4U
+//A side scrolling wherin one must avoid obstacles in order to achieve the highest possible score. 
+
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
