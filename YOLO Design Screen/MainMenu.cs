@@ -16,12 +16,9 @@ namespace YOLO_Design_Screen
         {
             InitializeComponent();
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             // Goes to the game screen
@@ -38,6 +35,11 @@ namespace YOLO_Design_Screen
         {
             //change to credit screen
             Form1.ChangeScreen(this, new CreditScreen());
+        }
+
+        private void practiceButton_Click(object sender, EventArgs e)
+        {
+            Form1.ChangeScreen(this, new TestScreen());
         }
     }
 }

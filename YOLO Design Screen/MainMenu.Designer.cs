@@ -73,6 +73,7 @@
             this.practiceButton.TabIndex = 5;
             this.practiceButton.Text = "PRACT1CE";
             this.practiceButton.UseVisualStyleBackColor = false;
+            this.practiceButton.Click += new System.EventHandler(this.practiceButton_Click);
             // 
             // creditButton
             // 

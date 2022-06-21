@@ -7,19 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace YOLO_Design_Screen
 {
     public partial class GameScreen : UserControl
     {
         Random random = new Random();
-        Particle p1 = new Particle(20, 200, 2);
+        Particle p1 = new Particle(300, 200, 50);
 
         List<Obstacle> obstacles = new List<Obstacle>();
-
+        List<HighScore> scores = new List<HighScore>();
 
         bool upArrowDown = false;
         bool downArrowDown = false;
+
+        SoundPlayer explosion = new SoundPlayer (Properties.Resources.Damage);
         
         public GameScreen()
         {
@@ -30,7 +33,6 @@ namespace YOLO_Design_Screen
         {
             Form1.score = 0;
             scoreLabel.Text = $"{Form1.score}";
-            this.Focus();
         }
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
@@ -54,6 +56,7 @@ namespace YOLO_Design_Screen
         }
         private void gametimer_Tick_1(object sender, EventArgs e)
         {
+            liveLabel.Text = $"{p1.lives}";
             //score
             Form1.score++; 
             scoreLabel.Text = $"{Form1.score}";
@@ -73,6 +76,7 @@ namespace YOLO_Design_Screen
                 obstacle.Collide(p1);
                 if (obstacle.Collide(p1) == true)
                 {
+                    explosion.Play();
                     p1.lives--;
                 }
             }
@@ -89,19 +93,14 @@ namespace YOLO_Design_Screen
             if (p1.lives <= 0)
             {
                 gametimer.Stop();
-                foreach (Obstacle obstacle in obstacles)
-                {
-                    obstacle.speed = 0;
-                }
                 Form1.ChangeScreen(this, new GameOver());
             }
-
             //make the game more difficult as it goes on
             if (Form1.score % 100 == 0)
             {
                 foreach (Obstacle obstacle in obstacles)
                 {
-                    obstacle.speed--;
+                    obstacle.speed++;
                 }
             }
             Refresh();
