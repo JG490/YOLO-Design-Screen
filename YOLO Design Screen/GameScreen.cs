@@ -76,8 +76,8 @@ namespace YOLO_Design_Screen
                 obstacle.Collide(p1);
                 if (obstacle.Collide(p1) == true)
                 {
-                    explosion.Play();
                     p1.lives--;
+                    explosion.Play();
                 }
             }
             //move particle up and down.

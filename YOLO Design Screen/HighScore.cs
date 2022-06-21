@@ -9,12 +9,10 @@ namespace YOLO_Design_Screen
 {
     internal class HighScore
     {
-        public string name;
         public int score;
 
-        public HighScore(string _name, int _score)
+        public HighScore(int _score)
         {
-            name = _name;
             score = _score;
         }
 

@@ -25,7 +25,6 @@ namespace YOLO_Design_Screen
             // Add all info from each HighScore object to temp list 
             foreach (HighScore hs in scores)
             {
-                tempList.Add(hs.name);
                 tempList.Add(Convert.ToString(hs.score));
             }
 
@@ -34,16 +33,17 @@ namespace YOLO_Design_Screen
 
             //read Highscores. 
             List<string> scoreList = File.ReadAllLines("HighscoreFile.txt").ToList();
-            highScoreLabel.Text = $"Highscore: {scoreList.Count.ToString()}";
 
             for (int i = 0; i < scoreList.Count; i += 2)
             {
-                string name = scoreList[i];
                 int score = Convert.ToInt32(scoreList[i + 1]);
 
-                HighScore hs = new HighScore(name, score);
+                HighScore hs = new HighScore(score);
                 scores.Add(hs);
             }
+            scores.Sort();
+
+            highScoreLabel.Text = $"{scores[0].ToString()}";
         }
 
         private void label1_Click(object sender, EventArgs e)
