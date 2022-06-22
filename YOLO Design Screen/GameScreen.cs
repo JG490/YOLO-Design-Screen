@@ -100,7 +100,7 @@ namespace YOLO_Design_Screen
             {
                 foreach (Obstacle obstacle in obstacles)
                 {
-                    obstacle.speed++;
+                    obstacle.speed--;
                 }
             }
             Refresh();
